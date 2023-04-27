@@ -20,7 +20,6 @@ def deal(self, request, context):
         mc.make_bucket(request.folder)
 
     obj = io.BytesIO(request.data)
-
     mc.put_object(request.folder, request.key, obj, len(request.data), content_type=f'application/{request.uploadType}')
 
     res = mc.presigned_get_object(request.folder, request.key, expires=timedelta(days=7))
