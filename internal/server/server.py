@@ -35,7 +35,7 @@ class Server:
         self.register(c, self.config.get('name'), ip, port)
 
         server.start()
-        server.wait_for_termination()
+
         try:
             while True:
                 time.sleep(186400)
