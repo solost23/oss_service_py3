@@ -21,13 +21,13 @@ def deal(self, request, context):
     try:
         if not mc.bucket_exists(bucket_name=request.folder):
             mc.make_bucket(request.folder)
-    except Exception:
-        context.set_details('Create Bucket Error')
+    except Exception as e:
+        context.set_details(e)
 
     try:
         obj = io.BytesIO(request.data)
         mc.put_object(request.folder, request.key, obj, len(request.data), content_type=f'application/{request.uploadType}')
-    except Exception:
-        context.set_details('Put File Error')
+    except Exception as e:
+        context.set_details(e)
 
     return oss.UploadResponse(url=mc.presigned_get_object(request.folder, request.key, expires=timedelta(days=7)), key=request.key)
