@@ -1,0 +1,43 @@
+version: "3.5"
+
+services:
+  app:
+    build: "."
+    restart: always
+    volumes:
+      - "$PWD/configs:/configs"
+    depends_on:
+      - consul
+      - minio
+    networks:
+      - app_net
+
+  consul:
+    image: consul:latest
+    container_name: consul
+    ports:
+      - "8500:8500"
+    networks:
+      - app_net
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: always
+    command: server --console-address ":9001" http://minio/data{1...2}
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - "/Users/ty/minio/data1:/data1"
+      - "/Users/ty/minio/data2:/data2"
+      - "/etc/localtime:/etc/localtime"
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    external: true
