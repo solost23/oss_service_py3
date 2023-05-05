@@ -1,5 +1,4 @@
 import os, sys
-sys.path.append(os.getcwd())
 sys.path.append(os.getcwd() + '/protopb/gen/py3')
 
 import yaml
