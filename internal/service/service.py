@@ -1,10 +1,9 @@
-from protopb.gen.py3.protos.oss import oss_pb2_grpc as oss_grpc
+from protopb.gen.py3.oss import oss_pb2_grpc as oss_grpc
 
 from internal.service.upload import action
 
-class OSSService(oss_grpc.OssServicer):
-    minio_client = None
 
+class OSSService(oss_grpc.OSSServiceServicer):
     def __init__(self, minio_client):
         self.minio_client = minio_client
 

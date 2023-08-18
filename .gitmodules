@@ -1,3 +1,3 @@
 [submodule "protopb"]
 	path = protopb
-	url = https://github.com/solost23/protopb
+	url = git@github.com:solost23/protopb.git

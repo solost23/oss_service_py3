@@ -1,7 +1,10 @@
 import io
+
 from datetime import timedelta
-from protopb.gen.py3.protos.oss import oss_pb2 as oss
+
+from protopb.gen.py3.oss import oss_pb2 as oss
 from internal.service.base import action
+
 
 class Action(action.Action):
     def __init__(self, context):

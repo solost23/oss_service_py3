@@ -4,7 +4,7 @@ time_location: "Asia/Shanghai"
 config_path: "srv/oss"
 
 consul:
-  host: "consul"
+  host: "localhost"
   port: 8500
 
 #mysql:
@@ -14,7 +14,7 @@ consul:
 #  max_conn_life_time: 100
 
 minio:
-  end_point: "minio:9000"
+  end_point: "localhost:9000"
   access_key_id: "minioadmin"
   secret_access_key: "minioadmin"
   user_ssl: False

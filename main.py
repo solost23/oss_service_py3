@@ -24,5 +24,3 @@ def init_config_from_consul():
 if __name__ == '__main__':
     # 初始化配置
     Server(config=init_config_from_consul()).run()
-
-

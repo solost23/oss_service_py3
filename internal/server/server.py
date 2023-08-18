@@ -1,17 +1,16 @@
-import grpc
-import consul
-from minio import Minio
 import time
 
+import grpc, consul
+
+from minio import Minio
 from concurrent import futures
 
 from internal.handler import handle
 from internal.handler import config
 from pkg.helper import internal
 
-class Server:
-    config = None
 
+class Server:
     def __init__(self, config):
         self.config = config
 
